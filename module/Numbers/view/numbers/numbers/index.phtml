@@ -1,0 +1,28 @@
+<?php
+// module/Numbers/view/numbers/numbers/index.phtml:
+
+$title = 'Phone numbers';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<p>
+<br></br>
+</p>
+
+<table class="table">
+<tr>
+    <th>Country</th>
+    <th>State</th>
+    <th>CountryCode</th>
+    <th>Phone num.</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach ($numbers as $numbers) : ?>
+    <tr>
+        <td><?= !empty($numbers->array[$numbers->countrycode]) ? $numbers->array[$numbers->countrycode] : null ?></td>
+        <td><?= $numbers->state==9 ? "OK" : "Not OK" ?></td>
+        <td><?= $this->escapeHtml($numbers->countrycode) ?></td>
+        <td><?= $this->escapeHtml($numbers->phone) ?></td>
+    </tr>
+<?php endforeach; ?>
+</table>
